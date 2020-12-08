@@ -20,7 +20,6 @@ const modals = () => {
                     btn.remove();
                 }
                 openModal();
-                closeAllModal();
             });
         });
 
@@ -49,7 +48,7 @@ const modals = () => {
 
         function closeAllModal() {
             windows.forEach(item => {
-                item.closeModal();
+                item.style.display = 'none';
             });
         }
     };
@@ -88,7 +87,7 @@ const modals = () => {
 
     openByScroll('.fixed-gift');
 
-    showModalByTime('.popup-consultation', 6000);
+    showModalByTime('.popup-consultation', 60000);
 };
 
 export default modals;
