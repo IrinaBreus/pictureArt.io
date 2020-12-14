@@ -1,3 +1,5 @@
+import {postData} from '../services/requests';
+
 const forms = () => {
     const form = document.querySelectorAll('form'),
           inputs = document.querySelectorAll('input'),
@@ -28,16 +30,6 @@ const forms = () => {
             item.previousElementSibling.textContent = name;
         });
     });
-
-    const postData = async (url, data) => {
-        let res = await fetch(url, {
-            method: "POST",
-            body: data
-        });
-
-        return await res.text();
-    };
-
 
     form.forEach(item => {
         item.addEventListener('submit', (e) => {
