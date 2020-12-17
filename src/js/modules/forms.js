@@ -1,4 +1,5 @@
 import {postData} from '../services/requests';
+import calc from './calc';
 
 const forms = () => {
     const form = document.querySelectorAll('form'),
@@ -53,10 +54,15 @@ const forms = () => {
             textMessage.textContent = message.loading;
             statusMessage.append(textMessage);
 
+            const state = calc();
             const formData = new FormData(item);
             let api;
             if (item.closest('.popup-design') || item.classList.contains('calc_form')) {
+                for (let key in state) {
+                    formData.append(key, state[key]);
+                }
                 api = path.designer;
+                console.log(state);
             } else {
                 api = path.question;
             }
@@ -78,11 +84,16 @@ const forms = () => {
                     item.previousElementSibling.textContent = 'Файл не выбран';
                 });
 
+                document.querySelector('#size').value = '';
+                document.querySelector('#material').value = '';
+                document.querySelector('#options').value = '0';
+
                 setTimeout(() => {
                     statusMessage.remove();
                     item.style.display = 'block';
                     item.classList.remove('fadeOutUp');
                     item.classList.add('fadeInUp');
+                    
                 }, 3000);
             });
         });
