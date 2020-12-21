@@ -87,6 +87,8 @@ const forms = () => {
                 document.querySelector('#size').value = '';
                 document.querySelector('#material').value = '';
                 document.querySelector('#options').value = '0';
+                document.querySelector('.calc .calc-price').textContent = 
+                        'Для расчета нужно выбрать размер картины и материал картины';
 
                 setTimeout(() => {
                     statusMessage.remove();
