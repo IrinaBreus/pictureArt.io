@@ -4455,13 +4455,20 @@ __webpack_require__.r(__webpack_exports__);
 
 var accordion = function accordion(triggersSelector) {
   var btns = document.querySelectorAll(triggersSelector);
-  btns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      btns.forEach(function (btn) {
+
+  var closeWindows = function closeWindows(n) {
+    btns.forEach(function (btn, i) {
+      if (i !== n) {
         btn.classList.remove('active-style');
         btn.nextElementSibling.classList.remove('active-content');
         btn.nextElementSibling.style.maxHeight = '0px';
-      });
+      }
+    });
+  };
+
+  btns.forEach(function (btn, i) {
+    btn.addEventListener('click', function () {
+      closeWindows(i);
       this.classList.toggle('active-style');
       this.nextElementSibling.classList.toggle('active-content');
 
