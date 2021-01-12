@@ -1,4 +1,4 @@
-import calcScroll from './scroll';
+import calcScroll from './calcScroll';
 
 const modals = () => {
     const scroll = calcScroll();
