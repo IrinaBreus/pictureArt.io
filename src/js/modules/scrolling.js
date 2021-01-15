@@ -7,7 +7,7 @@ const scrolling = (upSelector) => {
             upElem.classList.remove('fadeOut');
         } else {
             upElem.classList.add('fadeOut');
-            upElem.classList.add('fadeIn');
+            upElem.classList.remove('fadeIn');
         }
     });
 
